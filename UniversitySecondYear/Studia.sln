@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactor", "WzorceProgramow
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Builder", "WzorceProgramowe\Builder.csproj", "{9063C369-9D6E-4C5E-AAE3-6F3B03BBD329}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wzorce programowe", "Wzorce programowe", "{89A7A6A0-65D6-4C7D-801C-E173EA974FE9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WzorceProgramowe", "WzorceProgramowe", "{89A7A6A0-65D6-4C7D-801C-E173EA974FE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bezpieczeństwo", "Bezpieczeństwo", "{83D943E6-E9C1-407D-9EFD-544D5EF4EC5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaesarCode", "CaesarCode\CaesarCode.csproj", "{9DA2BAAB-CDDE-4213-A6CD-283A7A33A8B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asci", "Asci2\Asci.csproj", "{6AC745D2-9473-4523-B971-5033DB2AB8D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asci", "Asci2\Asci.csproj", "{6AC745D2-9473-4523-B971-5033DB2AB8D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

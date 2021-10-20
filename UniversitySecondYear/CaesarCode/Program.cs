@@ -17,10 +17,12 @@ namespace CaesarCode {
 
             var codes = new int[input.Length];
             for (int i = 0; i < convertedChars.Length; i++) {
-                codes[i] = chars[convertedChars[i + shift]];
+                var newIndex = shift % chars.Length;
+                var valueFromConvertedChars = convertedChars[i] + newIndex;
+                codes[i] = valueFromConvertedChars;
             }
 
-            foreach (var t in chars) {
+            foreach (var t in codes) {
                 Console.Write(Convert.ToChar(t));
             }
         }
