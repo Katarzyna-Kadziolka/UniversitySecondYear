@@ -6,6 +6,7 @@ namespace CeasarCodeSimple
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             // litery małe, duże, cyfry
