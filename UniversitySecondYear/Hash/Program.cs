@@ -55,3 +55,7 @@ namespace Hash {
 //00:00:00.1156557
 // 80 ms
 // 5,67s
+
+
+// zapis pozycyjny
+// dostaje tablice czegoś, char i zmienia w tej tablicy uklad na anstepny mozliwy
