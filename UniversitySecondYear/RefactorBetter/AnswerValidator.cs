@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Linq;
 
-namespace RefactorBetter
-{
-    public class AnswerValidator
-    {
-        public string Message { get; private set; }
+namespace RefactorBetter {
+    public class AnswerValidator : IValidator {
+        public string Message { get; set; }
+        public bool IsValid { get; set; }
         private int _maxValue;
+
         public AnswerValidator(int maxValue) {
             _maxValue = maxValue;
         }
-        
-        public bool Validate(string answer) {
-            return IsNotNullOrEmpty(answer) && IsNumber(answer) && Convert.ToInt32(answer) <= 9;
+
+        public void Validate(string answer) {
+            IsValid = IsNotNullOrEmpty(answer) && IsNumber(answer) && IsLessThanMaxValue(answer);
         }
+
         private bool IsNotNullOrEmpty(string answer) {
             if (string.IsNullOrEmpty(answer)) {
                 Message = "Please, entry a value";
@@ -33,7 +34,7 @@ namespace RefactorBetter
         }
 
         private bool IsLessThanMaxValue(string answer) {
-            if (Convert.ToInt32(answer) < _maxValue && Convert.ToInt32(answer) > 0) {
+            if (Convert.ToInt32(answer) <= _maxValue && Convert.ToInt32(answer) > 0) {
                 return true;
             }
 

@@ -3,8 +3,8 @@
 class Program {
     static void Main() {
 
-        BoardBuilder builder = new BoardBuilder();
-        Board board = builder.BuildClassicTicTacToeBoard();
-
+        GameFactory factory = new GameFactory();
+        Game game = factory.CreateClassicTicTacToeGame();
+        game.Play();
     }
 }
