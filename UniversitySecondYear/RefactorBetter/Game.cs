@@ -1,11 +1,10 @@
 ﻿using System;
 
 namespace RefactorBetter {
-    public class Game {
+    public class Game : IGame {
         
         private readonly GameState _gameState;
         private IValidator _validator;
-        private bool _valueInserted = false;
         private IDisplay _display;
         private IBoard _board;
 
@@ -20,6 +19,7 @@ namespace RefactorBetter {
             _display.DisplayStartGameView();
             while (!_board.LineIsFull(_gameState.Player.ToString())) {
                 if (_gameState.MoveCount == 9) {
+                    _board.WriteBoard();
                     _display.DisplayLoss();
                 }
 
@@ -29,7 +29,7 @@ namespace RefactorBetter {
                     _display.AskForAnswer(_gameState.Player);
                     var answer = Console.ReadLine();
                     Validate(answer);
-                } while (!_valueInserted);
+                } while (!_gameState.ValueInserted);
             }
             _board.WriteBoard();
             _display.DisplayWinner(_gameState.Player);
@@ -39,16 +39,16 @@ namespace RefactorBetter {
             _validator.Validate(answer);
             if (_validator.IsValid) {
                 try {
-                    _valueInserted = true;
+                    _gameState.ValueInserted = true;
                     _board.SetValue(answer, _gameState.Player.ToString());
                 }
                 catch (NotVacantException e) {
-                    _valueInserted = false;
+                    _gameState.ValueInserted = false;
                     _display.DisplayError(e.Message);
                 }
             }
             else {
-                _valueInserted = false;
+                _gameState.ValueInserted = false;
                 _display.DisplayError(_validator.Message);
             }
         }

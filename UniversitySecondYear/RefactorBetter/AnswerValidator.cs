@@ -38,7 +38,7 @@ namespace RefactorBetter {
                 return true;
             }
 
-            Message = $"Input value cannot be bigger than {_maxValue} and less than 1";
+            Message = $"Input value should be bigger than 0 and less than {_maxValue + 1}";
             return false;
         }
     }

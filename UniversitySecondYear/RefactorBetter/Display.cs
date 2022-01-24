@@ -12,6 +12,7 @@ namespace RefactorBetter {
             Console.Write("> ");
         }
         public void DisplayLoss() {
+            Console.WriteLine();
             Console.WriteLine("No one won.");
             Console.ReadKey();
             Environment.Exit(1);

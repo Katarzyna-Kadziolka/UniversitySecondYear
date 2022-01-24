@@ -4,10 +4,12 @@ namespace RefactorBetter {
     public class GameState {
         public Player Player { get; private set; }
         public int MoveCount { get; private set; }
+        public bool ValueInserted { get; set; }
 
         public GameState() {
             Player = Player.Y;
             MoveCount = 0;
+            ValueInserted = false;
         }
 
         public void NextTurn() {

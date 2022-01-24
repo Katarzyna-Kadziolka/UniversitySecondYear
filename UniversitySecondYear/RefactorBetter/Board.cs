@@ -14,6 +14,7 @@ namespace RefactorBetter {
                 }
             }
         }
+
         public void WriteBoard() {
             Console.Clear();
             Console.WriteLine();
@@ -44,12 +45,38 @@ namespace RefactorBetter {
                 }
             }
         }
+
         public bool LineIsFull(string symbol) {
-            return AnyHorizontalLine(symbol) || AnyVerticalLine(symbol);
+            return AnyHorizontalLine(symbol) || AnyVerticalLine(symbol) || IsCrossLineLeftToRightFull(symbol) ||
+                   IsCrossLineRightToLeftFull(symbol);
         }
 
-        private bool CrossLineIsFull(string symbol) {
-            throw new NotImplementedException();
+        private bool IsCrossLineRightToLeftFull(string symbol) {
+            for (int i = 0; i < Boxes.GetLength(0); i++) {
+                for (int j = 0; j < Boxes.GetLength(0); j++) {
+                    if (j == Boxes.GetLength(0) - 1 - i) {
+                        if (Boxes[i][j] != symbol) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsCrossLineLeftToRightFull(string symbol) {
+            for (int i = 0; i < Boxes.GetLength(0); i++) {
+                for (int j = 0; j < Boxes.GetLength(0); j++) {
+                    if (i == j) {
+                        if (Boxes[j][i] != symbol) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
         }
 
         private bool AnyHorizontalLine(string symbol) {
@@ -58,6 +85,7 @@ namespace RefactorBetter {
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -73,6 +101,7 @@ namespace RefactorBetter {
                     }
                 }
             }
+
             return false;
         }
     }
