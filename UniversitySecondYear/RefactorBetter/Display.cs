@@ -6,9 +6,9 @@ namespace RefactorBetter {
             Console.WriteLine(" -- Tic Tac Toe -- ");
             Console.Clear();
         }
-        public void AskForAnswer(Player player) {
+        public void AskForAnswer(Player player, int maxValue) {
             Console.WriteLine();
-            Console.WriteLine($"What box do you want to place {player} in? (1-9)");
+            Console.WriteLine($"What box do you want to place {player} in? (1-{maxValue})");
             Console.Write("> ");
         }
         public void DisplayLoss() {

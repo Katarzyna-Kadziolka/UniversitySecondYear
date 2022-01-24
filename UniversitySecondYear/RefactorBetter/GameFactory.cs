@@ -1,7 +1,8 @@
 ﻿namespace RefactorBetter {
     public class GameFactory {
         public Game CreateClassicTicTacToeGame() {
-            return new Game( new Board(), new GameState(), new AnswerValidator(9), new Display());
+            var maxValue = 9;
+            return new Game( new Board(), new GameState(maxValue), new AnswerValidator(maxValue), new Display());
         }
     }
 }

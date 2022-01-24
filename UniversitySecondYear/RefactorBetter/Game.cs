@@ -26,7 +26,7 @@ namespace RefactorBetter {
                 _gameState.NextTurn();
                 do {
                     _board.WriteBoard();
-                    _display.AskForAnswer(_gameState.Player);
+                    _display.AskForAnswer(_gameState.Player, _gameState.MaxValue);
                     var answer = Console.ReadLine();
                     Validate(answer);
                 } while (!_gameState.ValueInserted);

@@ -2,35 +2,33 @@
 
 namespace RefactorBetter {
     public class GameState {
-        public Player Player { get; private set; }
-        public int MoveCount { get; private set; }
+        public Player Player { get; private set; } = Player.Y;
+        public int MoveCount { get; private set; } 
         public bool ValueInserted { get; set; }
+        public int MaxValue { get; }
 
-        public GameState() {
-            Player = Player.Y;
-            MoveCount = 0;
-            ValueInserted = false;
+        public GameState(int maxValue) {
+            MaxValue = maxValue;
         }
 
         public void NextTurn() {
             GetNextPlayer();
             MoveCount++;
         }
-        public Player GetNextPlayer() {
+        public void GetNextPlayer() {
             switch (Player) {
                 case Player.None:
                     throw new ArgumentException();
                 case Player.X:
                     Player = Player.Y;
-                    return Player;
+                    return;
                 case Player.Y:
                     Player = Player.X;
-                    return Player;
+                    return;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
-
     }
 }
 
